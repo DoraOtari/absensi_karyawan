@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,4 +33,9 @@ require __DIR__.'/auth.php';
 
 Route::get('/dashboard', function(){
     return view('backend.dashboard');
+});
+
+Route::controller(JabatanController::class)->group(function(){
+    Route::get('/jabatan/create', 'create');
+    Route::post('/jabatan', 'store');
 });

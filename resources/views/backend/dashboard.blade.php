@@ -16,9 +16,9 @@
                             Steve Jobs
                         </figcaption>
                     </figure>
-                    {{-- <a href="{{ route('karyawan.performa') }}" class="btn btn-lg gradasi border-0">
+                    <a href="{{ url('/karyawan/performa') }}" class="btn btn-lg gradasi border-0">
                         Lihat Performa mu <i class="bi-arrow-up-right"></i>
-                    </a> --}}
+                    </a>
             </div>
             <div class="col-lg-4">
                 <img src="https://img.freepik.com/free-vector/man-holding-clock-time-management-concept_23-2148823171.jpg?w=740&t=st=1683034542~exp=1683035142~hmac=80d07e4704aba9a28e7f251045dd278f66789cab8032e1b1ebca30848f7a2873" class="img-fluid w-100" alt="">
