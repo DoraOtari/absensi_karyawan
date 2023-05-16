@@ -36,6 +36,6 @@ Route::get('/dashboard', function(){
 });
 
 Route::controller(JabatanController::class)->group(function(){
-    Route::get('/jabatan/create', 'create');
+    Route::get('/jabatan/create', 'create')->name('buat jabatan');
     Route::post('/jabatan', 'store');
 });
