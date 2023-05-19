@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class JabatanController extends Controller
 {
+    public function index()
+    {
+        $jabatan = Jabatan::latest()->get();
+        return view('backend.jabatan.index', compact('jabatan'));
+    }
+
     public function create(){
         return view('backend.jabatan.create');
     }
