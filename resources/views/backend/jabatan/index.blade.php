@@ -6,6 +6,11 @@
     }
 @endphp
     <div class="col-lg-8 mx-auto">
+        @if (session('pesan'))
+            <div class="alert alert-success" role="alert">
+                {{ session('pesan') }}
+            </div>
+        @endif      
         <div class="card border-0">
             <div class="card-body">
                 <h1 class="lead">Seluruh data jabatan</h1>
@@ -28,9 +33,10 @@
                                 <td>{{ $col->nama_jabatan }}</td>
                                 <td>{{ $col->status }}</td>
                                 <td>{{ rp($col->gaji_jabatan) }}</td>
-                                <td><a href="" class="btn btn-outline-primary"><i class="bi-pen"></i></a></td>
+                                <td><a href="{{ url('jabatan/'.$col->id.'/edit') }}" class="btn btn-outline-primary"><i class="bi-pen"></i></a></td>
                                 <td>
-                                    <form action="" method="post">
+                                    <form action="{{ url('jabatan', $col->id) }}" method="post">
+                                        @method('delete')
                                         @csrf
                                         <button type="submit" class="btn btn-outline-danger"><i class="bi-trash2"></i></button>
                                     </form>
@@ -40,6 +46,9 @@
                             {{-- end --}}
                         </tbody>
                     </table>
+                    <a href="{{ url('/jabatan/create') }}" class="btn float-end btn-primary">
+                       <i class="bi-plus"></i> tambah
+                    </a>
                 </div>
             </div>
         </div>
