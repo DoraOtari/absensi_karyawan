@@ -13,6 +13,7 @@
         }
     </style>
     @livewireStyles
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 </head>
   <body>
     {{-- navigasi komponen --}}
@@ -44,13 +45,16 @@
                 <a class="nav-link {{ request()->is('user*') ? 'active ' : '' }}" href="{{ url('user') }}">User Profil</a>
               </li>
             </ul>
-            {{-- <div class="d-flex gap-2 justify-content-center align-items-center">
+            <div class="d-flex gap-2 justify-content-center align-items-center">
+              @if ()
+                  
+              @endif
               <img src="{{ '/storage/'.auth()->user()->foto_profil ?? asset('img/profile.gif') }}" class="rounded-circle img-fluidl" width="40"  alt="no profil">
               <div class="d-grid">
                 <small class="text-capitalize lead">{{ auth()->user()->name }}</small>
                 <span class="badge gradasi2 text-capitalize">{{ auth()->user()->role }}</span>
               </div>
-            </div> --}}
+            </div>
           </div>
         </div>
       </div>
@@ -61,5 +65,13 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   @livewireScripts
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    $(document).ready(function () {
+        $('.tabelku').DataTable();
+    });
+  </script>
   </body>
 </html>

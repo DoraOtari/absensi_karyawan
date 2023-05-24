@@ -44,4 +44,15 @@ class JabatanController extends Controller
         $pengguna = Jabatan::find($id);
         return view('backend.jabatan.edit', compact('pengguna'));
     }
+
+    public function update(Request $request, $id)
+    {
+        Jabatan::where('id', $id)->update([
+            'nama_jabatan' => $request->nama_jabatan,
+            'status' => $request->status,
+            'gaji_jabatan' => $request->gaji_jabatan,
+        ]);
+
+        return redirect('jabatan')->with('pesan', 'Berhasil update jabatan');
+    }
 }

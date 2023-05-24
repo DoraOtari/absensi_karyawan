@@ -16,7 +16,7 @@
                 <h1 class="lead">Seluruh data jabatan</h1>
                 <hr>
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table tabelku">
                         <thead>
                             <tr>
                                 <th>Nama Jabatan</th>

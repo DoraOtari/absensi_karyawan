@@ -6,7 +6,8 @@
                 <div class="card-body">
                     <h5 class="card-title"><i class="bi-clipboard-data"></i> Edit Jabatan</h5>
                     <hr>
-                    <form action="{{ url('/jabatan') }}" method="post">
+                    <form action="{{ url('/jabatan',$pengguna->id) }}" method="post">
+                        @method('put')
                         @csrf
                         <div class="form-floating mb-3">
                             <input value="{{ $pengguna->nama_jabatan }}" name="nama_jabatan" type="text" class="form-control" id="nama_jabatan" placeholder="name@example.com">
@@ -27,7 +28,7 @@
                         </div>
 
                         <div class="text-end">
-                            <button type="submit" class="btn gradasi rounded-pill"><i class="bi-plus"></i> Tambah</button>
+                            <button type="submit" class="btn gradasi rounded-pill"><i class="bi-plus"></i> Update</button>
                         </div>
                     </form>
                 </div>

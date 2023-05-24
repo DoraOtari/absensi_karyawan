@@ -35,10 +35,19 @@ Route::get('/dashboard', function(){
     return view('backend.dashboard');
 });
 
-Route::controller(JabatanController::class)->group(function(){
-    Route::get('/jabatan', 'index')->name('tampil jabatan');
-    Route::get('/jabatan/create', 'create')->name('buat jabatan');
-    Route::get('jabatan/{id}/edit', 'edit');
-    Route::post('/jabatan', 'store');
-    Route::delete('jabatan/{id}','hapus');
+
+
+Route::middleware(['auth'])->group(function(){
+    // jabatan controller
+    Route::controller(JabatanController::class)->group(function(){
+        Route::get('/jabatan', 'index')->name('tampil jabatan');
+        Route::get('/jabatan/create', 'create')->name('buat jabatan');
+        Route::get('jabatan/{id}/edit', 'edit');
+        Route::post('/jabatan', 'store');
+        Route::delete('jabatan/{id}','hapus');
+        Route::put('jabatan/{id}','update');
+    });
+
+    // user controller
+    
 });
