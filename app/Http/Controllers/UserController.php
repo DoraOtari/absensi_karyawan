@@ -7,6 +7,11 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    public function edit()
+    {
+        return view('backend.edit_profil');
+    }
+
     public function update(Request $request, $id)
     {
         $lokasi = $request->foto->store('gambar');

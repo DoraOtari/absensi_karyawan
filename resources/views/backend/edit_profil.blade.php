@@ -5,11 +5,11 @@
             <div class="card-body">
                 <h4 class="card-title">Update Profil</h4>
                 <hr>
-                <form action="{{ url(profil,auth()->user()->id) }}" method="post">
+                <form action="{{ url('profil',auth()->user()->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('patch')
-                    <label for="">Upload Foto</label>
-                    <input type="text" name="foto" id="" class="form-control">
+                    <label class="form-label">Upload Foto</label>
+                    <input type="file" name="foto" accept="image/*" id="" class="form-control">
                     <div class="my-3 text-end">
                         <button type="submit" class="btn btn-dark">
                             <i class="bi-upload"></i> Upload

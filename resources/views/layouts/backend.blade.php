@@ -42,14 +42,15 @@
               </li>
               {{-- @endif --}}
               <li class="nav-item">
-                <a class="nav-link {{ request()->is('user*') ? 'active ' : '' }}" href="{{ url('user') }}">User Profil</a>
+                <a class="nav-link {{ request()->is('profil*') ? 'active ' : '' }}" href="{{ url('profil/edit') }}">Profile</a>
               </li>
             </ul>
             <div class="d-flex gap-2 justify-content-center align-items-center">
-              @if ()
-                  
+              @if (auth()->user()->foto_profil)
+                <img src="{{ asset('storage/'.Auth::user()->foto_profil) }}" class="rounded-circle img-fluid" width="40"  alt="no profil">    
+              @else
+                <img src="{{ asset('profile.gif') }}" class="rounded-circle img-fluid" width="40"  alt="no profil">
               @endif
-              <img src="{{ '/storage/'.auth()->user()->foto_profil ?? asset('img/profile.gif') }}" class="rounded-circle img-fluidl" width="40"  alt="no profil">
               <div class="d-grid">
                 <small class="text-capitalize lead">{{ auth()->user()->name }}</small>
                 <span class="badge gradasi2 text-capitalize">{{ auth()->user()->role }}</span>
