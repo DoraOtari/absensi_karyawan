@@ -1,20 +1,14 @@
 <?php
 
+// catatan
+// -Target class [KaryawanController] does not exist.
+// +tambahkan use Controller sebelum digunakan
+
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('beranda');
@@ -53,5 +47,11 @@ Route::middleware(['auth'])->group(function(){
     Route::controller(UserController::class)->group(function(){
         Route::get('profil/edit', 'edit');
         Route::patch('profil/{id}', 'update');
+    });
+
+    // karyawan
+    Route::controller(KaryawanController::class)->group(function(){
+        Route::get('karyawan', 'tampil');
+        Route::get('karyawan/buat', 'buat');
     });
 });
