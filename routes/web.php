@@ -53,5 +53,6 @@ Route::middleware(['auth'])->group(function(){
     Route::controller(KaryawanController::class)->group(function(){
         Route::get('karyawan', 'tampil');
         Route::get('karyawan/buat', 'buat');
+        Route::post('/karyawan', 'simpan');
     });
 });
